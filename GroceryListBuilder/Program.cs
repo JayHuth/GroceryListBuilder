@@ -1,29 +1,27 @@
-﻿
-using Newtonsoft.Json.Linq;
+var builder = WebApplication.CreateBuilder(args);
 
-namespace GroceryListMaker
+// Add services to the container.
+builder.Services.AddControllersWithViews();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
 {
-    class program
-    {
-        static void Main(string[] args)
-        {
-            var client = new HttpClient();
+    app.UseExceptionHandler("/Home/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
 
-            //Console.WriteLine("What would you like to eat?");
+app.UseHttpsRedirection();
+app.UseStaticFiles();
 
-            //var meal = Console.ReadLine();
+app.UseRouting();
 
-            var foodURL = $"https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata";
-            var response = client.GetStringAsync(foodURL).Result;
+app.UseAuthorization();
 
-            JObject formattedResponse = JObject.Parse(response);
-            //var = formattedResponse;
-            Console.WriteLine();
-            Console.WriteLine(formattedResponse["meals"][0]["strMeal"]);
-            Console.WriteLine(formattedResponse["meals"][0]["strIngredient1"]);
-            Console.WriteLine(formattedResponse["meals"][0]["strIngredient2"]);
-            Console.WriteLine(formattedResponse["meals"][0]["strIngredient3"]);
-            Console.WriteLine(formattedResponse["meals"][0]["strIngredient4"]);
-        }
-    }
-} 
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.Run();
