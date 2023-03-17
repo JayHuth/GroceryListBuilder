@@ -1,10 +1,11 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using GroceryListBuilder.Models;
+using Newtonsoft.Json.Linq;
 
 namespace APICall
 {
-    class program
+    class APICall
     {
-        static void Main(string[] args)
+        public static Meal GetMeal()
         {
             var client = new HttpClient();
 
@@ -12,12 +13,10 @@ namespace APICall
             var response = client.GetStringAsync(foodURL).Result;
 
             JObject formattedResponse = JObject.Parse(response);
-            Console.WriteLine();
-            Console.WriteLine(formattedResponse["meals"][0]["strMeal"]);
-            Console.WriteLine(formattedResponse["meals"][0]["strIngredient1"]);
-            Console.WriteLine(formattedResponse["meals"][0]["strIngredient2"]);
-            Console.WriteLine(formattedResponse["meals"][0]["strIngredient3"]);
-            Console.WriteLine(formattedResponse["meals"][0]["strIngredient4"]);
+            var instance = new Meal();
+            instance.StrMeal = formattedResponse["meals"][0]["strMeal"].ToString();
+            instance.StrInstructions = formattedResponse["meals"][0]["strInstructions"].ToString();
+            return instance;
         }
     }
 }

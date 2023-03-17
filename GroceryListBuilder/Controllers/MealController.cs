@@ -2,11 +2,12 @@
 
 namespace GroceryListBuilder.Controllers
 {
-    public class Meal : Controller
+    public class MealController : Controller
     {
         public IActionResult Index()
         {
-            return View();
+            var api = APICall.APICall.GetMeal();
+            return View(api);
         }
     }
 }
