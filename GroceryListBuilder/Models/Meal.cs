@@ -4,6 +4,7 @@
     {
         public string StrMeal { get; set; }
         public string StrInstructions { get; set; }
+        public string StrPhoto { get; set; }
         public string StrIngredient1 { get; set; }
         public string StrIngredient2 { get; set; }
         public string StrIngredient3 { get; set; }

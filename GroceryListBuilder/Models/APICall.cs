@@ -15,7 +15,11 @@ namespace APICall
             JObject formattedResponse = JObject.Parse(response);
             var instance = new Meal();
             instance.StrMeal = formattedResponse["meals"][0]["strMeal"].ToString();
+
             instance.StrInstructions = formattedResponse["meals"][0]["strInstructions"].ToString();
+
+            instance.StrPhoto = formattedResponse["meals"][0]["strMealThumb"].ToString();
+
             instance.StrIngredient1 = formattedResponse["meals"][0]["strIngredient1"].ToString();
             instance.StrIngredient2 = formattedResponse["meals"][0]["strIngredient2"].ToString();
             instance.StrIngredient3 = formattedResponse["meals"][0]["strIngredient3"].ToString();
@@ -26,7 +30,7 @@ namespace APICall
             instance.StrIngredient8 = formattedResponse["meals"][0]["strIngredient8"].ToString();
             instance.StrIngredient9 = formattedResponse["meals"][0]["strIngredient9"].ToString();
             instance.StrIngredient10 = formattedResponse["meals"][0]["strIngredient10"].ToString();
- 
+
             return instance;
         }
     }
