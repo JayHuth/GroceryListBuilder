@@ -2,6 +2,7 @@
 using GroceryListBuilder.Models;
 using Microsoft.AspNetCore.Mvc;
 
+
 namespace GroceryListBuilder.Controllers
 {
     public class HomeController : Controller
@@ -28,5 +29,6 @@ namespace GroceryListBuilder.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
     }
 }

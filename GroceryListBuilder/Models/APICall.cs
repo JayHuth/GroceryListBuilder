@@ -5,11 +5,12 @@ namespace APICall
 {
     class APICall
     {
-        public static Meal GetMeal()
+        public static Meal GetMeal(string recipe)
         {
             var client = new HttpClient();
+           
 
-            var foodURL = $"https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata";
+            var foodURL = $"https://www.themealdb.com/api/json/v1/1/search.php?s={recipe}";
             var response = client.GetStringAsync(foodURL).Result;
 
             JObject formattedResponse = JObject.Parse(response);
