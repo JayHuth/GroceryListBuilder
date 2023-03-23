@@ -7,7 +7,6 @@ namespace GroceryListBuilder.Controllers
     {
         public IActionResult RecipeIndex(Meal mealName)
         {
-            //string recipe = "taco";
             var api = APICall.APICall.GetMeal(mealName.StrMeal);
             return View(api);
         }

@@ -7,14 +7,57 @@
 <img src=@Model.StrPhoto />
 
 <ol>
-<li>@Model.StrIngredient1</li>
-<li>@Model.StrIngredient2</li>
-<li>@Model.StrIngredient3</li>
-<li>@Model.StrIngredient4</li>
-<li>@Model.StrIngredient5</li>
-<li>@Model.StrIngredient6</li>
-<li>@Model.StrIngredient7</li>
-<li>@Model.StrIngredient8</li>
-<li>@Model.StrIngredient9</li>
-<li>@Model.StrIngredient10</li>
+
+    @if (Model != null && Model.StrIngredient1.Count() != 0)
+    {
+        <li>@Model.StrIngredient1</li>
+    }
+
+    @if (Model != null && Model.StrIngredient2.Count() != 0)
+    {
+        <li>@Model.StrIngredient2</li>
+    }
+
+    @if (Model != null && Model.StrIngredient3.Count() != 0)
+    {
+        <li>@Model.StrIngredient3</li>
+    }
+
+    @if (Model != null && Model.StrIngredient4.Count() != 0)
+    {
+        <li>@Model.StrIngredient4</li>
+    }
+
+    @if (Model != null && Model.StrIngredient5.Count() != 0)
+    {
+        <li>@Model.StrIngredient5</li>
+    }
+
+    @if (Model != null && Model.StrIngredient6.Count() != 0)
+    {
+        <li>@Model.StrIngredient6</li>
+    }
+
+    @if (Model != null && Model.StrIngredient7.Count() != 0)
+    {
+        <li>@Model.StrIngredient7</li>
+    }
+
+    @if (Model != null && Model.StrIngredient8.Count() != 0)
+    {
+        <li>@Model.StrIngredient8</li>
+    }
+
+    @if (Model != null && Model.StrIngredient9.Count() != 0)
+    {
+        <li>@Model.StrIngredient9</li>
+    }
+
+    @if (Model != null && Model.StrIngredient10.Count() != 0)
+    {
+        <li>@Model.StrIngredient10</li>
+    }
+
+
+
 </ol>
